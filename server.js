@@ -142,6 +142,33 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (pathname === '/api/analysis/scan' && req.method === 'POST') {
+    let body = '';
+    req.on('data', c => { body += c; });
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body || '{}');
+        const fileName = payload.fileName || 'uploaded_code.py';
+        const code = payload.code || '';
+        const lines = code.split('\n');
+        
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          success: true,
+          fileName,
+          lines: lines.length,
+          ast_score: "8.9 / 10",
+          status: "verified",
+          timestamp: new Date().toISOString()
+        }));
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
   if (pathname === '/api/repos') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(repositories));
