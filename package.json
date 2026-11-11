@@ -4,6 +4,7 @@
   "description": "Autonomous Software Debugging & Code Intelligence Platform",
   "main": "server.js",
   "scripts": {
+    "build": "echo 'Build complete'",
     "start": "node server.js"
   },
   "keywords": [

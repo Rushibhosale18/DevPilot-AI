@@ -3,5 +3,5 @@ services:
     name: devpilot-ai
     env: node
     plan: free
-    buildCommand: ""
+    buildCommand: npm run build
     startCommand: node server.js
