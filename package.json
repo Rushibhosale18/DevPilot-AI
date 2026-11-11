@@ -1,0 +1,21 @@
+{
+  "name": "devpilot-ai",
+  "version": "1.0.0",
+  "description": "Autonomous Software Debugging & Code Intelligence Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "ai",
+    "code-intelligence",
+    "rag",
+    "ast-debugging",
+    "security-audit"
+  ],
+  "author": "Rushi Bhosale",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
